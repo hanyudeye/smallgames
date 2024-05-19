@@ -1,0 +1,94 @@
+* {
+    color: white;
+    font-family: "Synchro LET", monospace;
+    font-weight: bold;
+    font-size: x-large;
+}
+body {
+    background-color: black;
+    padding: 0;
+    margin: 0;
+    height: 0px;
+}
+#background {
+    background-image: url("../img/background.png");
+}
+.title {
+    position: absolute;
+    bottom: 0;
+    pointer-events:none
+}
+#scores {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+}
+.score {
+    display: block;
+}
+.high_score * {
+    color: red;
+}
+
+.hidden {
+    visibility: hidden;
+}
+.invisible {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 1s;
+}
+.visible {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 1s;
+}
+#pause {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+}
+.ribbon_right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 0;
+    background:green;
+    padding: 5pt;
+    opacity: .8;
+}
+.ribbon_left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: 0;
+    background:green;
+    padding: 5pt;
+    opacity: .8;
+}
+.ribbon_left a {
+    text-decoration: none;
+}
+#menu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+#menu .list {
+    list-style-type: none;
+    display: table-cell;
+    vertical-align: middle;
+    horizontal-align: middle;
+}
+#menu .item {
+    padding: 5pt;
+    text-align: center;
+    margin: 5pt auto;
+    max-width: 50%;
+    text-decoration: none;
+}
+#menu a {
+    text-decoration: none;
+}

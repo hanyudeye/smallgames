@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html manifest="manifests/piranha.appcache">
+<head>
+  <title>Piranhas</title>
+   <meta charset="utf-8" />
+   <script defer="defer">
+     // Hack around browsers that do not support 'defer'
+     window.onload = function deferred(){
+        var code = document.createElement("script");
+        code.type = "text/javascript";
+        code.src = "js/main.js";
+        document.getElementsByTagName("head")[0].appendChild(code);
+    }
+   </script>
+  <link rel="stylesheet" href="css/style.css" />
+<meta name="viewport" 
+  content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+</head>
+
+<body style="overflow:hidden">
+<div id="background" style="position:absolute;width:100%;height:100%">
+  <div class="title">
+  <div>Caramba!</div>
+  <div>Hay Piranhas!</div>
+</div>
+</div>
+<canvas id="canvas" style="position:absolute;width:100%;height:100%">
+</canvas>
+<div class="result hidden" id="result">
+</div>
+</div>
+<div id="scores" class="scores">
+  <span id="score" class="score">
+  </span>
+  <span id="high" class="score">
+  </span>
+</div>
+ <!--
+Removed music until we find good music to play.
+<audio src="audio/music.ogg" autoplay="autoplay" controls="" loop="" style="display: none;"></audio>
+-->
+</div>
+<div id="menu">
+  <div class="list">
+    <div class="item" id="difficulty_1">Casual</div>
+    <div class="item" id="difficulty_2">Hard</div>
+    <div class="item" id="difficulty_3">Impossible</div>
+    <div class="item"> <hr /> </div>
+    <div class="item">
+      <a href="http://github.com/Yoric/piranhas"
+      target="_blank"
+      onclick="event.stopPropagation();"
+      ontouchend="event.stopPropagation();">
+      About
+      </a>
+    </div>
+    <div class="item invisible" id="ribbon_install">Install me</div>
+  </div>
+</div>
+<div class="hidden" id="pause">
+  <div>
+    Pause
+  </div>
+  <div>
+    (press to continue)
+  </div>
+</div>
+
+</div>
+</body>
+</html>
