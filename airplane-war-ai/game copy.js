@@ -15,9 +15,21 @@ const player = {
     y: canvasHeight - 100,    // 距离底部100像素
     width: 50,
     height: 50,
-    speed: 5,
-    isMoving: false
+    speed: 5
 };
+
+// 键盘按键状态
+const keys = {};
+
+// 事件监听：按键按下
+window.addEventListener('keydown', (e) => {
+    keys[e.key] = true;
+});
+
+// 事件监听：按键松开
+window.addEventListener('keyup', (e) => {
+    delete keys[e.key];
+});
 
 // 敌人数组
 const enemies = [];
@@ -65,6 +77,20 @@ function checkCollisions() {
 
 // 游戏更新函数
 function update() {
+    // 更新玩家位置
+    if (keys['ArrowLeft'] && player.x > 0) {
+        player.x -= player.speed;
+    }
+    if (keys['ArrowRight'] && player.x < canvasWidth - player.width) {
+        player.x += player.speed;
+    }
+    if (keys['ArrowUp'] && player.y > 0) {
+        player.y -= player.speed;
+    }
+    if (keys['ArrowDown'] && player.y < canvasHeight - player.height) {
+        player.y += player.speed;
+    }
+
     // 清除画布
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
@@ -102,18 +128,4 @@ window.addEventListener('resize', () => {
     canvas.height = canvasHeight;
     player.x = canvasWidth / 2 - player.width / 2;
     player.y = canvasHeight - 100;
-});
-
-// 处理鼠标移动事件
-canvas.addEventListener('mousemove', (e) => {
-    player.x = e.clientX - player.width / 2;
-    player.y = e.clientY - player.height / 2;
-});
-
-// 处理触摸移动事件
-canvas.addEventListener('touchmove', (e) => {
-    const touch = e.touches[0];
-    player.x = touch.clientX - player.width / 2;
-    player.y = touch.clientY - player.height / 2;
-    e.preventDefault();  // 防止滚动
 });
